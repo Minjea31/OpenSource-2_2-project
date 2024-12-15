@@ -1,0 +1,2 @@
+ar_parking_crossroad:line_following:ros_mfc_com
+-DCATKIN_DEVEL_PREFIX=/home/xytron/transport_ws/devel -DCMAKE_INSTALL_PREFIX=/home/xytron/transport_ws/install -G Unix Makefiles

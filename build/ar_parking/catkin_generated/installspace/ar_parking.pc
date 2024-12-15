@@ -1,0 +1,8 @@
+prefix=/home/xytron/transport_ws/install
+
+Name: ar_parking
+Description: Description of ar_parking
+Version: 0.1.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
