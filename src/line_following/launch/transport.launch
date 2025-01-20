@@ -1,0 +1,27 @@
+<launch>
+  <!-- USB Camera -->
+  <include file="$(find usb_cam)/launch/xycar_cam_viewer.launch" />
+
+  <!-- AR Tracker -->
+  <node name="ar_track_alvar" pkg="ar_track_alvar" type="individualMarkersNoKinect" output="screen">
+    <param name="marker_size" value="9.0" />
+    <param name="max_new_marker_error" value="0.05" />
+    <param name="max_track_error" value="0.05" />
+    <param name="output_frame" value="usb_cam" />
+    <remap from="camera_image" to="/usb_cam/image_raw" />
+    <remap from="camera_info" to="/usb_cam/camera_info" />
+  </node>
+
+  <!-- Line Following Node -->
+  <node name="line_following_node" pkg="line_following" type="line_following_node" output="screen" />
+
+  <!-- AR Parking and Crossroad Node -->
+  <node name="ar_parking_crossroad_node" pkg="ar_parking_crossroad" type="ar_parking_crossroad_node" output="screen" />
+
+  <!-- ROS-MFC Communication Node -->
+  <node name="ros_mfc_com_node" pkg="ros_mfc_com" type="ros_mfc_com_node" output="screen" />
+
+  <!-- Motor Controller -->
+  <include file="$(find xycar_motor)/launch/xycar_motor.launch" />
+</launch>
+
